@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t sricompind/My-Docker-React -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true sricompind/My-Docker-React npm run test
